@@ -37272,26 +37272,42 @@ a.u-link.u-text-hover-grey-90:hover {
 }
 
 .u-footer .u-sheet-1 {
-  min-height: 136px;
+  min-height: 134px;
 }
 
 .u-footer .u-text-1 {
   width: 417px;
-  margin: 49px auto;
+  margin: 48px auto;
 }
 @media (max-width: 1199px) {
   .u-footer .u-sheet-1 {
     min-height: 99px;
+  }
+
+  .u-footer .u-text-1 {
+    margin-right: 291px;
+    margin-left: 232px;
   }
 }
 @media (max-width: 991px) {
   .u-footer .u-sheet-1 {
     min-height: 76px;
   }
+
+  .u-footer .u-text-1 {
+    margin-right: 236px;
+    margin-left: 67px;
+  }
 }
 @media (max-width: 767px) {
   .u-footer .u-sheet-1 {
     min-height: 57px;
+  }
+
+  .u-footer .u-text-1 {
+    margin-top: 93px;
+    margin-right: 191px;
+    margin-left: -68px;
   }
 }
 @media (max-width: 575px) {
@@ -37301,6 +37317,8 @@ a.u-link.u-text-hover-grey-90:hover {
 
   .u-footer .u-text-1 {
     width: 340px;
+    margin-right: 199px;
+    margin-left: -198px;
   }
 }
 
