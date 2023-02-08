@@ -6,6 +6,7 @@ import { useTheme } from "next-themes"
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
 import { FiMenu } from "react-icons/fi";
 import { IoCloseOutline } from "react-icons/io5";
+import Image from 'next/image'
 
 interface NavItem {
     label: string
@@ -33,12 +34,12 @@ const NavBar = () => {
     const [navbar, setNavBar] = useState(false)
 
     return (
-        <header className='w-full mx-auto px-4 shadow fixed top-0 z-50 sm:px-20 dark:border-b dark:border-stone-600'>
+        <header className='w-full mx-auto px-4 fixed top-0 z-50 sm:px-20'>
             <div className='justify-between md:items-center md:flex'>
                 <div>
                     <div className='flex items-center justify-between py-3'>
                         <div className='md:py-5 md:block'>
-                            <h2 className='text-xl font-bold'>John Rimuel</h2>
+                        <Image id='logo' src="/logo.png" alt="Logo" width={60} height={60}></Image>
                         </div>
                         <div className='md:hidden'>
                             <button onClick={() => setNavBar(!navbar)}>
