@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import anime from 'animejs'
 
-const SplashScreen = ({ finishLoading }) => {
+const SplashScreen = ({ finishLoading }: any) => {
 
     const [isMounted, setIsMounted] = useState(false)
 
@@ -13,16 +13,34 @@ const SplashScreen = ({ finishLoading }) => {
 
         loader.add({
             targets: "#logo",
-            translateY: {
-                value: 200,
-                duration: 800
-              },
-            rotate: function () { return anime.random(-360, 360); },
-            borderRadius: function () { return ['50%', anime.random(10, 35) + '%']; },
-            duration: function () { return anime.random(1200, 1800); },
+            scale: {
+                value: [0, 1],
+                duration: 500,
+                ease: "easeInOutElastic"
+            },
+            rotate: {
+                value: 360,
+                duration: 1500,
+                delay: 500,
+                ease: "easeInOutElastic"
+            },
             delay: 0,
-            direction: 'alternate',
-            loop: true
+        })
+
+        loader.add({
+            targets: "#logo",
+            scale: {
+                value: [1,0],
+                duration: 500,
+                ease: "easeInOutElastic"
+            },
+            opacity: {
+                value: [1,0],
+                duration: 500,
+                delay: 50,
+                ease: "easeInOutElastic"
+            },
+            delay: 0
         })
     }
 
@@ -33,11 +51,10 @@ const SplashScreen = ({ finishLoading }) => {
     }, [])
 
     return (
-        <div
-            className="flex h-screen items-center justify-center"
-            isMounted={isMounted}
+        <div id='bg' className="bg-slate-500 flex h-screen items-center justify-center"
+            data-isMounted={isMounted}
         >
-            <Image id='logo' src="/logo.png" alt="Logo" width={100} height={100}></Image>
+            <Image className='scale-0' id='logo' src="/logo.png" alt="Logo" width={100} height={100}></Image>
         </div>
     )
 }

@@ -34,28 +34,28 @@ const NavBar = () => {
     const [navbar, setNavBar] = useState(false)
 
     return (
-        <header className='w-full mx-auto px-4 fixed top-0 z-50 sm:px-20'>
+        <header className='w-full mx-auto px-4 fixed shadow bg-white dark:bg-stone-900 dark:border-b dark:border-stone-600 top-0 z-50 sm:px-20 backdrop-filter backdrop-blur-lg md:bg-opacity-20'>
             <div className='justify-between md:items-center md:flex'>
                 <div>
-                    <div className='flex items-center justify-between py-3'>
-                        <div className='md:py-5 md:block'>
-                        <Image id='logo' src="/logo.png" alt="Logo" width={60} height={60}></Image>
+                    <div className='flex items-center justify-between'>
+                        <div className='md:block md:p-0 py-3'>
+                            <Image id='logo' src="/logo.png" alt="Logo" width={60} height={60}></Image>
                         </div>
                         <div className='md:hidden'>
-                            <button onClick={() => setNavBar(!navbar)}>
+                            <button  data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false" onClick={() => setNavBar(!navbar)}>
                                 {navbar ? <IoCloseOutline size={30} /> : <FiMenu size={30} />}
                             </button>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`}>
-                        <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                    <div id="navbar-default" className={`w-full md:w-auto flex-1 justify-self-center pb-3 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`}>
+                        <div className="flex items-center justify-center flex-col p-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                             {Nav_Items.map((item, index) => {
-                                return <Link 
+                                return <Link
                                     key={index}
                                     to={item.page}
-                                    className={"cursor-pointer block lg:inline-block"}
+                                    className={"cursor-pointer hover:bg-slate-400 block lg:inline-block p-3"}
                                     activeClass="active"
                                     spy={true}
                                     smooth={true}
@@ -64,6 +64,10 @@ const NavBar = () => {
                                     onClick={() => setNavBar(!navbar)}
                                 >{item.label}</Link>
                             })}
+                            <div className='py-3'>
+                            <a href="/cv.simple.pdf" target="_blank" className='bg-transparent hover:bg-pink-500 text-pink-700 font-semibold hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent rounded'>Resume</a>
+                            </div>
+                            <div className='py-3'>
                             {
                                 currentTheme === "dark" ? (
                                     <button onClick={() => setTheme("light")} className="bg-slate-200 p-2 rounded-xl">
@@ -75,6 +79,7 @@ const NavBar = () => {
                                     </button>
                                 )
                             }
+                            </div>
                         </div>
                     </div>
                 </div>
