@@ -52,7 +52,7 @@ const SplashScreen = ({ finishLoading }: any) => {
 
     return (
         <div id='bg' className="bg-slate-500 flex h-screen items-center justify-center"
-            data-isMounted={isMounted}
+            isMounted={isMounted}
         >
             <Image className='scale-0' id='logo' src="/logo.png" alt="Logo" width={100} height={100}></Image>
         </div>

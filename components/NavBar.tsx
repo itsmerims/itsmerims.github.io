@@ -34,7 +34,7 @@ const NavBar = () => {
     const [navbar, setNavBar] = useState(false)
 
     return (
-        <header className='w-full mx-auto px-4 fixed shadow bg-white dark:bg-stone-900 dark:border-b dark:border-stone-600 top-0 z-50 sm:px-20 backdrop-filter backdrop-blur-lg md:bg-opacity-20'>
+        <header className='w-full mx-auto px-4 fixed bg-slate-200 dark:bg-slate-900 top-0 z-50 sm:px-20 backdrop-filter backdrop-blur-lg md:bg-opacity-20'>
             <div className='justify-between md:items-center md:flex'>
                 <div>
                     <div className='flex items-center justify-between'>
@@ -55,7 +55,7 @@ const NavBar = () => {
                                 return <Link
                                     key={index}
                                     to={item.page}
-                                    className={"cursor-pointer hover:bg-slate-400 block lg:inline-block p-3"}
+                                    className={"cursor-pointer rounded hover:bg-pink-300 dark:hover:bg-pink-600 block lg:inline-block p-3"}
                                     activeClass="active"
                                     spy={true}
                                     smooth={true}
@@ -65,16 +65,16 @@ const NavBar = () => {
                                 >{item.label}</Link>
                             })}
                             <div className='py-3'>
-                            <a href="/cv.simple.pdf" target="_blank" className='bg-transparent hover:bg-pink-500 text-pink-700 font-semibold hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent rounded'>Resume</a>
+                            <a href="/cv.simple.pdf" target="_blank" className='bg-transparent dark:hover:text-slate-900 hover:bg-pink-500 text-pink-700 font-semibold hover:text-white py-2 px-4 border border-pink-500 dark:text-pink-500 dark:border-pink-400 hover:border-transparent rounded'>Resume</a>
                             </div>
                             <div className='py-3'>
                             {
                                 currentTheme === "dark" ? (
-                                    <button onClick={() => setTheme("light")} className="bg-slate-200 p-2 rounded-xl">
-                                        <RiSunFill size={20} color='black' />
+                                    <button onClick={() => setTheme("light")} className="p-2 rounded-xl">
+                                        <RiSunFill size={20} color='white' />
                                     </button>
                                 ) : (
-                                    <button onClick={() => setTheme("dark")} className='bg-slate-200 p-2 rounded-xl'>
+                                    <button onClick={() => setTheme("dark")} className='p-2 rounded-xl'>
                                         <RiMoonFill size={20} />
                                     </button>
                                 )

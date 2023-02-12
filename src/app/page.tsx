@@ -2,7 +2,7 @@ import HeroSection from "components/HeroSection"
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-3xl px-4 sm:px-6 md:max-w-5xl">
+    <main className="w-screen bg-slate-200 dark:bg-slate-900 mx-auto px-4 sm:px-6">
       <HeroSection />
     </main>
   )
