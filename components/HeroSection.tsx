@@ -13,11 +13,11 @@ const HeroSection = () => {
                     <h1 className='font-bold md:text-7xl sm:text-5xl text-4xl mt-6 md:mt-0 text-slate-200'>John Rimuel B&#x2e;</h1>
                     <h1 className='font-bold md:text-7xl text-4xl mt-6 md:mt-0 text-tagline'>I turn <span className='text-coffee'>coffee</span> into code&#x2e;</h1>
                     <p className='text-lg mx-auto md:mx-0 mb-6 mt-7 w-10/12 md:w-2/3 text-slate-400'>
-                        I'm a{" "}
+                        I&#39;m a{" "}
                         <span className='font-bold text-pink-400'>
                             Junior Programmer{" "}
                         </span>
-                        based in the Philippines. I'm specialized in designing {" (and ocassionally in building) "} exceptional digital experiences. Currently, I'm invested in learning web development using Next.js, Three.js Tailwind CSS, Typescript and many more.
+                        based in the Philippines. I&#39;m specialized in designing {" (and ocassionally in building) "} exceptional digital experiences. Currently, I&#39;m invested in learning web development using Next.js, Three.js Tailwind CSS, Typescript and many more.
                     </p>
                     <div className='p-0'>
                         <Link
