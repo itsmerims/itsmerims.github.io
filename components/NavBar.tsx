@@ -75,7 +75,7 @@ const NavBar = () => {
                                 >{item.label}</Link>
                             })}
                             <div className='py-3'>
-                            <a href="/cv.simple.pdf" target="_blank" className='bg-transparent text-pink-400 hover:text-slate-900 hover:bg-pink-500 font-semibold py-2 px-4 border border-pink-400 hover:border-transparent rounded'>Resume</a>
+                            <a href="/cv.simple.pdf" target="_blank" className='bg-transparent hover:text-white hover:bg-pink-500 font-semibold py-2 px-4 border text-pink-400 border-pink-400 hover:border-transparent rounded  background-transparent uppercase text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'>Resume</a>
                             </div>
                         </div>
                     </div>
