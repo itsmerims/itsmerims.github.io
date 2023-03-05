@@ -6,6 +6,7 @@ import SplashScreen from 'components/SplashScreen'
 import { usePathname } from "next/navigation";
 import { path } from "animejs";
 import { useEffect, useState } from 'react'
+import Footer from "components/Footer"
 
 
 export default function RootLayout({
@@ -29,7 +30,7 @@ export default function RootLayout({
         head.tsx.
       */}
       <head />
-      <body>
+      <body className='bg-slate-900'>
         {
           isLoading && isHome ? (
             <SplashScreen finishLoading={() => setIsLoading(false)}/>
@@ -37,6 +38,7 @@ export default function RootLayout({
             <ThemeProvider enableSystem={true} attribute="class">
               <NavBar />
               {children}
+              <Footer />
             </ThemeProvider>
           )
         }

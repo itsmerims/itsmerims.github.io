@@ -34,12 +34,22 @@ const NavBar = () => {
     const [navbar, setNavBar] = useState(false)
 
     return (
-        <header className='w-full mx-auto px-4 fixed bg-slate-900 top-0 z-50 sm:px-20 backdrop-filter backdrop-blur-lg'>
+        <header className='w-screen mx-auto px-4 fixed bg-slate-900 top-0 z-50 sm:px-20'>
             <div className='justify-between md:items-center md:flex'>
                 <div>
                     <div className='flex items-center justify-between'>
                         <div className='md:block md:p-0 py-3'>
+                        <Link
+                            to="home"
+                            className={"cursor-pointer"}
+                            activeClass="active"
+                            spy={true}
+                            smooth={true}
+                            offset={-100}
+                            duration={500}
+                        >
                             <Image id='logo' src="/logo.png" alt="Logo" width={60} height={60}></Image>
+                        </Link>
                         </div>
                         <div className='md:hidden'>
                             <button  data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 ml-3 text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false" onClick={() => setNavBar(!navbar)}>
