@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { path } from "animejs";
 import { useEffect, useState } from 'react'
 import Footer from "components/Footer"
-
+import { AnalyticsWrapper } from 'components/Analytics';
 
 export default function RootLayout({
   children,
@@ -38,6 +38,7 @@ export default function RootLayout({
             <ThemeProvider enableSystem={true} attribute="class">
               <NavBar />
               {children}
+              <AnalyticsWrapper />
               <Footer />
             </ThemeProvider>
           )
