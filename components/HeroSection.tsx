@@ -22,7 +22,7 @@ const HeroSection = () => {
                     <div className='p-0'>
                         <Link
                             to="projects"
-                            className={"cursor-pointer bg-transparent hover:text-slate-900 hover:bg-pink-500 font-semibold py-2 px-4 border dark:text-pink-500 text-pink-400 border-pink-400 hover:border-transparent rounded"}
+                            className={"cursor-pointer bg-transparent text-pink-400 hover:text-slate-900 hover:bg-pink-500 font-semibold py-2 px-4 border border-pink-400 hover:border-transparent rounded"}
                             activeClass="active"
                             spy={true}
                             smooth={true}

@@ -75,21 +75,8 @@ const NavBar = () => {
                                 >{item.label}</Link>
                             })}
                             <div className='py-3'>
-                            <a href="/cv.simple.pdf" target="_blank" className='bg-transparent hover:text-slate-900 hover:bg-pink-500 font-semibold py-2 px-4 border dark:text-pink-500 text-pink-400 border-pink-400 hover:border-transparent rounded'>Resume</a>
+                            <a href="/cv.simple.pdf" target="_blank" className='bg-transparent text-pink-400 hover:text-slate-900 hover:bg-pink-500 font-semibold py-2 px-4 border border-pink-400 hover:border-transparent rounded'>Resume</a>
                             </div>
-                            {/* <div className='py-3'>
-                            {
-                                currentTheme === "dark" ? (
-                                    <button onClick={() => setTheme("light")} className="p-2 rounded-xl">
-                                        <RiSunFill size={20} color='white' />
-                                    </button>
-                                ) : (
-                                    <button onClick={() => setTheme("dark")} className='p-2 rounded-xl'>
-                                        <RiMoonFill size={20} />
-                                    </button>
-                                )
-                            }
-                            </div> */}
                         </div>
                     </div>
                 </div>
