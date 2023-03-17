@@ -44,19 +44,19 @@ const AboutSection = () => {
                     </p>
                     <br />
                     <p className='text-white'>
-                      I graduated from Dalubhasaan ng Lungsod ng Lucena, Quezon Province in 2022 with a BS in Information Technology and have been workinig in the field back then.
+                      I graduated from Dalubhasaan ng Lungsod ng Lucena, Quezon Province in 2022 with a BS in Information Technology and have been working in the field back then.
                     </p>
                     <br />
                     <p className='text-white'>
-                      I have a wide range of hobbies and passions that keep me busy. From playing computer and mobile games, playing sports, making song covers, to making Youtube videos. I always seek new experiences and love to keep my self engaged and learning new things.
+                    I keep myself busy with a variety of hobbies and interests. From playing computer and mobile games to sports, song covers, and YouTube videos. I am always looking for new experiences and enjoy keeping myself engaged and learning new things.
                     </p>
                     <br />
                     <p className='text-white'>
                       I believe that you should{" "}
                       <span className='font-bold text-pink-600'>
-                        never stop growing
+                        never stop learning
                       </span>{" "}
-                      and that&#39;s what I strive to do. I have a passion for technology and desire to always push the limits of what&#39;s possible. I am excited to see where my career take me and always open to new opportunities. 😊
+                      and I strive to do so. I am fascinated by technology and strive to push the boundaries of what is possible. I'm looking forward to seeing where my career takes me and am always open to new opportunities. 😊
                     </p>
                 </div>
                 <div className="md:w-2/5">
