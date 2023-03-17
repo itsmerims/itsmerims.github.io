@@ -56,7 +56,7 @@ const AboutSection = () => {
                       <span className='font-bold text-pink-600'>
                         never stop learning
                       </span>{" "}
-                      and I strive to do so. I am fascinated by technology and strive to push the boundaries of what is possible. I'm looking forward to seeing where my career takes me and am always open to new opportunities. 😊
+                      and I strive to do so. I am fascinated by technology and strive to push the boundaries of what is possible. I&#39;m looking forward to seeing where my career takes me and am always open to new opportunities. 😊
                     </p>
                 </div>
                 <div className="md:w-2/5">
