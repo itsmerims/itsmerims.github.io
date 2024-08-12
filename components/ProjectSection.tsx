@@ -91,13 +91,13 @@ const ProjectSection = () => {
                 {/*header*/}
                 <div className="flex items-start text-black justify-between pt-4 px-6 rounded-t">
                   <h3 className="text-xl font-bold">
-                    Coming Soon
+                    Not Available
                   </h3>
                 </div>
                 {/*body*/}
                 <div className="relative py-2 px-6 flex-auto">
                   <p className="my-4 text-slate-500 leading-relaxed">
-                    This Java project will be uploaded soon.
+                    There is no link yet to this project.
                   </p>
                 </div>
                 {/*footer*/}
