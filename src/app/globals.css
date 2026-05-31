@@ -3,22 +3,58 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  --font-sans: "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  --scrollbar-track: #0f172a;
+  --scrollbar-thumb: #0ea5e9;
 }
 
 * {
   box-sizing: border-box;
   font-family: var(--font-sans);
-  /* outline: red solid 1px; */
-  /* background: rgb(0 100 0 / 0.1) !important; */
 }
 
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
 
 body::-webkit-scrollbar {
-  display: none;
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
 }
 
 body {
   -ms-overflow-style: none;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-cyber-blue hover:bg-cyan-600 text-data-bg font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 uppercase text-sm;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent hover:bg-data-card font-semibold rounded-lg border border-cyber-blue text-cyber-blue transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 uppercase text-sm;
+  }
+
+  .card-glow {
+    @apply hover:border-cyber-blue hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-cyber-blue to-electric-purple bg-clip-text text-transparent;
+  }
 }

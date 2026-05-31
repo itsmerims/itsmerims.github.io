@@ -23,6 +23,14 @@ const Nav_Items: Array<NavItem> = [
         page: "about"
     },
     {
+        label: "Experience",
+        page: "experience"
+    },
+    {
+        label: "Skills",
+        page: "skills"
+    },
+    {
         label: "Projects",
         page: "projects"
     }
@@ -34,25 +42,25 @@ const NavBar = () => {
     const [navbar, setNavBar] = useState(false)
 
     return (
-        <header className='w-screen mx-auto px-4 fixed bg-slate-900 top-0 z-50 sm:px-20'>
+        <header className='w-screen mx-auto px-4 fixed bg-gradient-to-b from-data-bg/95 to-data-bg/90 backdrop-blur-sm top-0 z-50 sm:px-20 border-b border-data-border/50'>
             <div className='justify-between md:items-center md:flex'>
                 <div>
                     <div className='flex items-center justify-between'>
                         <div className='md:block md:p-0 py-3'>
-                        <Link
-                            to="home"
-                            className={"cursor-pointer"}
-                            activeClass="active"
-                            spy={true}
-                            smooth={true}
-                            offset={-100}
-                            duration={500}
-                        >
-                            <Image id='logo' src="/logo.png" alt="Logo" width={60} height={60}></Image>
-                        </Link>
+                            <Link
+                                to="home"
+                                className="cursor-pointer font-bold text-xl text-cyber-blue hover:text-cyan-400 transition-colors"
+                                activeClass="active"
+                                spy={true}
+                                smooth={true}
+                                offset={-100}
+                                duration={500}
+                            >
+                                Rims
+                            </Link>
                         </div>
                         <div className='md:hidden'>
-                            <button  data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 ml-3 text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false" onClick={() => setNavBar(!navbar)}>
+                            <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 ml-3 text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 text-cyber-blue hover:bg-data-card focus:ring-cyber-blue" aria-controls="navbar-default" aria-expanded="false" onClick={() => setNavBar(!navbar)}>
                                 {navbar ? <IoCloseOutline size={30} /> : <FiMenu size={30} />}
                             </button>
                         </div>
@@ -65,7 +73,7 @@ const NavBar = () => {
                                 return <Link
                                     key={index}
                                     to={item.page}
-                                    className={"cursor-pointer rounded text-slate-100 hover:bg-pink-600 block lg:inline-block p-3"}
+                                    className="cursor-pointer rounded text-data-text-secondary hover:text-cyber-blue block lg:inline-block p-3 transition-colors font-semibold"
                                     activeClass="active"
                                     spy={true}
                                     smooth={true}
@@ -75,7 +83,7 @@ const NavBar = () => {
                                 >{item.label}</Link>
                             })}
                             <div className='py-3'>
-                            <a href="/cv.simple.pdf" target="_blank" className='bg-transparent hover:text-white hover:bg-pink-500 font-semibold py-2 px-4 border text-pink-400 border-pink-400 hover:border-transparent rounded  background-transparent uppercase text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'>Resume</a>
+                                <a href="/Profile.pdf" target="_blank" className='bg-cyber-blue hover:bg-cyan-600 text-data-bg font-semibold py-2 px-4 border border-transparent rounded transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 uppercase text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear'>Resume</a>
                             </div>
                         </div>
                     </div>

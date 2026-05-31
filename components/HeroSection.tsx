@@ -6,43 +6,61 @@ import { IoIosArrowDown } from "react-icons/io";
 
 const HeroSection = () => {
     return (
-        <section className='md:h-screen' id='home'>
-            <div className='flex flex-col my-auto text-center justify-center items-center py-16 md:flex-row md:text-left md:space-x-4'>
-                <div className='px-0 sm:mt-12 md:mt-20 lg:mt-32'>
-                    <p className='font-mono sm:text-md md:text-md lg:text-lg xl:text-lg text-pink-400'>Hi, my name is</p>
-                    <h1 className='font-bold md:text-9xl sm:text-7xl text-6xl mt-2 md:mt-0 text-slate-200'>John Rimuel B&#x2e;</h1>
-                    <h1 className='font-bold md:text-8xl text-6xl mt-2 md:mt-0 text-tagline'>I turn <span className='text-coffee'>coffee</span> into code&#x2e;</h1>
-                    <p className='sm:text-lg md:text-lg lg:text-lg xl:text-xl text-left mx-auto md:mx-0 mb-6 mt-4 w-10/12 md:w-2/3 text-slate-400'>
-                        I&#39;m a{" "}
-                        <span className='font-bold text-pink-400'>
-                            Junior Programmer{" "}
-                        </span>
-                        based in the Philippines. I&#39;m specialized in designing {" (and ocassionally in building) "} exceptional digital experiences. Currently, I&#39;m invested in learning web development using Next.js, Three.js Tailwind CSS, Typescript and many more.
+        <section className='min-h-screen bg-gradient-to-b from-data-bg via-slate-900 to-data-bg' id='home'>
+            <div className='flex flex-col my-auto text-center justify-center items-center py-16 px-4 sm:px-8 md:px-16 lg:px-24 md:flex-row md:text-left md:space-x-4 md:min-h-screen'>
+                <div className='sm:mt-12 md:mt-0 lg:mt-0 animate-slideInUp'>
+                    <p className='font-mono sm:text-sm md:text-base lg:text-lg text-cyber-blue font-semibold'>Welcome to my portfolio</p>
+                    <h1 className='font-bold md:text-7xl sm:text-5xl text-4xl mt-4 md:mt-4 text-slate-100'>
+                        Hi, I&#39;m <span className='text-cyber-blue'>John Rimuel</span>
+                    </h1>
+                    <h2 className='font-bold md:text-5xl text-3xl mt-3 bg-gradient-to-r from-cyber-blue to-electric-purple bg-clip-text text-transparent'>
+                        Data Engineer • ETL Architect
+                    </h2>
+                    <p className='sm:text-base md:text-lg lg:text-lg text-left mx-auto md:mx-0 mb-8 mt-6 w-full md:w-4/5 text-data-text-secondary leading-relaxed'>
+                        Building intelligent data pipelines that turn raw data into strategic advantage.
+                        I specialize in scalable ETL solutions, data engineering, and AI-driven workflows at
+                        <span className='font-semibold text-cyber-blue'> Macquarie</span>.
+                        Passionate about designing robust infrastructure that empowers organizations
+                        to leverage data for competitive advantage.
                     </p>
-                    <div className='p-0'>
+                    <div className='flex flex-row gap-4 justify-center md:justify-start'>
                         <Link
-                            to="projects"
-                            className={"cursor-pointer bg-transparent hover:text-white hover:bg-pink-500 font-semibold py-2 px-4 border text-pink-400 border-pink-400 hover:border-transparent rounded  background-transparent uppercase text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"}
+                            to="experience"
+                            className='cursor-pointer bg-cyber-blue hover:bg-cyan-600 text-data-bg font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 uppercase text-sm'
                             activeClass="active"
                             spy={true}
                             smooth={true}
                             offset={-100}
                             duration={500}
-                        >Projects</Link>
-
+                        >
+                            View My Work
+                        </Link>
+                        <Link
+                            to="contact"
+                            className='cursor-pointer bg-transparent hover:bg-data-card font-semibold py-3 px-6 border border-cyber-blue text-cyber-blue rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 uppercase text-sm'
+                            activeClass="active"
+                            spy={true}
+                            smooth={true}
+                            offset={-100}
+                            duration={500}
+                        >
+                            Get In Touch
+                        </Link>
                     </div>
                 </div>
             </div>
-            <div className='flex flex-row justify-center mt-5'>
+            <div className='flex flex-row justify-center mt-8 md:mt-0'>
                 <Link
                     to="about"
-                    className={"cursor-pointer "}
+                    className='cursor-pointer animate-bounce'
                     activeClass="active"
                     spy={true}
                     smooth={true}
                     offset={-100}
                     duration={500}
-                ><IoIosArrowDown color='white' size={35} className="animate-bounce"/></Link>
+                >
+                    <IoIosArrowDown color='#0ea5e9' size={35} />
+                </Link>
             </div>
         </section>
     )

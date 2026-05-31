@@ -1,74 +1,79 @@
 import React from 'react'
+import { FaCode, FaDatabase, FaBrain } from 'react-icons/fa';
 
-const skills = [
-  {skill: "HTML"},
-  {skill: "CSS"},
-  {skill: "JavaScript"},
-  {skill: "Dart"},
-  {skill: "Flutter"},
-  {skill: "Python"},
-  {skill: "Next.js"},
-  {skill: "Git"},
-  {skill: "Github"},
-  {skill: "PHP"},
-  {skill: "Tailwind CSS"},
-  {skill: "Bootstrap"},
-  {skill: "Laravel"},
-  {skill: "TypeScript"},
-  {skill: "React.js"},
-  {skill: "SQL"},
-  {skill: "Java"},
-  {skill: "Vercel"},
-  {skill: "Tableau"},
-]
+const keyDifferentiators = [
+  {
+    icon: <FaDatabase className='text-cyber-blue' size={24} />,
+    title: "Data Architecture",
+    description: "Design scalable ETL pipelines and data infrastructure for enterprise solutions"
+  },
+  {
+    icon: <FaBrain className='text-electric-purple' size={24} />,
+    title: "AI-Driven Development",
+    description: "Leverage AI and ML workflows to automate data processes and enhance analytics"
+  },
+  {
+    icon: <FaCode className='text-accent-glow' size={24} />,
+    title: "Clean Code",
+    description: "Write modular, maintainable, and performant data solutions"
+  }
+];
+
+const aboutText = `I'm a Data Engineer passionate about building intelligent, scalable data infrastructure. Currently at Macquarie's Data DevOps team, I architect ETL pipelines and data solutions that empower organizations to leverage data and AI for competitive advantage.
+
+With a strong foundation in Python, SQL, and modern data platforms (Snowflake, dbt), I bridge the gap between business requirements and technical implementation. My expertise spans end-to-end data engineering—from pipeline orchestration (Control-M, Airflow) to analytics (Power BI)—with a growing focus on AI-driven development and automation.
+
+Previously at Accenture, I delivered complex Talend integration projects for Fortune 500 clients. I'm committed to writing clean, modular, and performant code while mentoring others in data engineering best practices.`;
 
 const AboutSection = () => {
   return (
-    <section className='lg:h-screen' id='about'>
-        <div className="my-2 pb-12">
-            <div>
-            <h1 className="text-white text-center font-bold text-4xl">
-              About Me
-              <hr className="w-6 h-1 mx-auto my-2 bg-yellow-700 border-0 rounded"/>
-            </h1>
+    <section className='py-20 bg-slate-900' id='about'>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="mb-16">
+          <h2 className="text-white text-center font-bold text-5xl mb-4">
+            About Me
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-cyber-blue to-electric-purple mx-auto rounded-full" />
+        </div>
+
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-start'>
+          {/* Left Column - About Text */}
+          <div className="space-y-6">
+            <h3 className='text-white font-bold text-2xl'>Who I Am</h3>
+            {aboutText.split('\n\n').map((paragraph, idx) => (
+              <p key={idx} className='text-data-text-secondary leading-relaxed text-base'>
+                {paragraph}
+              </p>
+            ))}
+            <div className="pt-4">
+              <p className='text-cyber-blue font-semibold'>
+                📊 Current Role: Data Engineer @ Macquarie (Data DevOps Team)
+              </p>
+              <p className='text-data-text-secondary mt-2'>
+                Location: Philippines | Open to Remote Opportunities
+              </p>
             </div>
-            <div className='flex flex-col space-y-10 align-top justify-center items-stretch md:flex-row md:text-left md:p-4 md:space-y-0 md:space-x-10'>
-                <div className="md:w-3/5">
-                    <h1 className='text-white font-bold text-center md:text-left mb-3'>Get to know me!</h1>
-                    <p className='text-white'>
-                      {" "}
-                      <span className='font-bold text-pink-600'>Kumusta?</span> My name is John Rimuel and I am a{" "}
-                      <span className='font-bold'>{"highly ambitious"}</span>,
-                      <span className='font-bold'>{" self-motivated"}</span>, and
-                      <span className='font-bold'>{" driven"}</span> associate software engineer based in Manila, Philippines.
-                    </p>
-                    <br />
-                    <p className='text-white'>
-                      I graduated from Dalubhasaan ng Lungsod ng Lucena, Quezon Province in 2022 with a BS in Information Technology and have been working in the field back then.
-                    </p>
-                    <br />
-                    <p className='text-white'>
-                    I keep myself busy with a variety of hobbies and interests. From playing computer and mobile games to sports, song covers, and YouTube videos. I am always looking for new experiences and enjoy keeping myself engaged and learning new things.
-                    </p>
-                    <br />
-                    <p className='text-white'>
-                      I believe that you should{" "}
-                      <span className='font-bold text-pink-600'>
-                        never stop learning
-                      </span>{" "}
-                      and I strive to do so. I am fascinated by technology and strive to push the boundaries of what is possible. I&#39;m looking forward to seeing where my career takes me and am always open to new opportunities. 😊
-                    </p>
-                </div>
-                <div className="md:w-2/5">
-                  <h1 className="text-white font-bold text-center md:text-left mb-3">My Skills</h1>
-                  <div className="flex flex-wrap flex-row justify-center md:justify-start">
-                    {skills.map((item, index) => {
-                      return <p key={index} className="bg-gray-700 px-4 py-2 mt-2 mr-2 text-gray-200 font-semibold rounded">{item.skill}</p>
-                    })}
+          </div>
+
+          {/* Right Column - Key Differentiators */}
+          <div className="space-y-6">
+            <h3 className='text-white font-bold text-2xl'>What I Bring</h3>
+            {keyDifferentiators.map((item, index) => (
+              <div key={index} className="p-6 bg-data-card border border-data-border rounded-lg hover:border-cyber-blue hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 mt-1">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold text-lg mb-2">{item.title}</h4>
+                    <p className="text-data-text-secondary text-sm">{item.description}</p>
                   </div>
                 </div>
-            </div>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
     </section>
   )
 }

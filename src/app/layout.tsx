@@ -30,10 +30,10 @@ export default function RootLayout({
         head.tsx.
       */}
       <head />
-      <body className='bg-slate-900'>
+      <body className='bg-data-bg text-slate-100'>
         {
           isLoading && isHome ? (
-            <SplashScreen finishLoading={() => setIsLoading(false)}/>
+            <SplashScreen finishLoading={() => setIsLoading(false)} />
           ) : (
             <ThemeProvider enableSystem={true} attribute="class">
               <NavBar />

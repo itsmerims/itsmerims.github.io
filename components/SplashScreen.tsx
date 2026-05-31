@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import anime from 'animejs'
 
@@ -6,7 +6,7 @@ const SplashScreen = ({ finishLoading }: any) => {
 
     const [isMounted, setIsMounted] = useState(false)
 
-    const animate = () => {
+    const animate = useCallback(() => {
         const loader = anime.timeline({
             complete: () => finishLoading(),
         })
@@ -42,17 +42,16 @@ const SplashScreen = ({ finishLoading }: any) => {
             },
             delay: 0
         })
-    }
+    }, [finishLoading])
 
     useEffect(() => {
         const timeout = setTimeout(() => setIsMounted(true), 10)
         animate()
         return () => clearTimeout(timeout)
-    }, [])
+    }, [animate])
 
     return (
         <div id='bg' className="bg-slate-900 flex h-screen items-center justify-center overflow-hidden"
-            data-isMounted={isMounted}
         >
             <Image className='scale-0' id='logo' src="/logo.png" alt="Logo" width={100} height={100}></Image>
         </div>

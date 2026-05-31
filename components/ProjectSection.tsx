@@ -4,117 +4,204 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { BsGithub, BsArrowRightSquare } from "react-icons/bs";
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const projects = [
   {
-    name: "Daenery's Bayad Center",
-    image: "/project1.png",
-    github: "https://github.com/itsmerims/miscellaneous-payment-system",
+    name: "MSW Badminton App",
+    image: "/msw-badminton-app.png",
+    github: "https://github.com/itsmerims/MSW-Badminton-App",
     link: "",
-    decription: "A house miscellaneous payment system built with Java using Eclipse and it's WindowBuilder with CRUD functionalities.",
+    description: "A professional badminton club management app for live court status, queue management, deterministic matchmaking, scoring, player ranking, and daily financial tracking.",
+    category: "Club Operations",
+    tags: ["Next.js", "Supabase", "Tailwind", "ShadCN UI"],
+    featured: true,
   },
   {
-    name: "First Three.js Project",
-    image: "/project2.png",
-    github: "https://github.com/itsmerims/first-threejs-project",
-    link: "https://first-threejs-project.000webhostapp.com/",
-    decription: "A interactive three.js web app that has a slow spinning earth that you can spin. This is my first three.js app I learn from a tutorial on Youtube.",
+    name: "CareerCompass VA",
+    image: "/careercompass-va.png",
+    github: "https://github.com/itsmerims/CareerCompass-VA",
+    link: "",
+    description: "An AI-powered career roadmap app for virtual assistants, with an interactive quiz, personalized persona results, saved roadmaps, and Firebase-backed persistence.",
+    category: "AI Guidance",
+    tags: ["Next.js", "Genkit", "Firestore", "Firebase"],
+    featured: true,
+  },
+  {
+    name: "ClarityBudgets",
+    image: "",
+    github: "https://github.com/itsmerims/claritybudgets",
+    link: "",
+    description: "A focused budgeting and expense tracker with budget management, visual dashboards, multi-currency support, AI category suggestions, and personalized saving tips.",
+    category: "Finance",
+    tags: ["Next.js", "TypeScript", "Gemini", "Zod"],
+    featured: false,
+  },
+  {
+    name: "Miscellaneous Payment System",
+    image: "/Miscellaneous-Payment-System.png",
+    github: "https://github.com/itsmerims/miscellaneous-payment-system",
+    link: "",
+    description: "A Java desktop payment system built with Eclipse and WindowBuilder, using text-file storage for CRUD-style record management.",
+    category: "Desktop App",
+    tags: ["Java", "Eclipse", "WindowBuilder", "CRUD"],
+    featured: false,
+  },
+  {
+    name: "TheBreakfastClub Badminton Manager",
+    image: "/thebreakfastclub.png",
+    github: "https://github.com/itsmerims/TheBreakfastClub-Badminton-App",
+    link: "",
+    description: "A badminton club management system with session-based routing, admin controls, Firestore-backed state, notifications, and player workflow tooling.",
+    category: "Club Operations",
+    tags: ["Next.js", "Firebase", "Genkit", "Firestore"],
+    featured: false,
   },
 ]
 
-
 const ProjectSection = () => {
+  const [selectedCategory, setSelectedCategory] = React.useState("All")
   const [showModal, setShowModal] = React.useState(false);
+
+  const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))]
+  const filteredProjects = selectedCategory === "All"
+    ? projects
+    : projects.filter(p => p.category === selectedCategory)
+
   return (
-    <section className='md:h-screen' id='projects'>
-      <div className="my-2 pb-12">
-        <div>
-          <h1 className="text-white text-center font-bold text-4xl">
-            Projects
-            <hr className="w-6 h-1 mx-auto my-4 bg-yellow-700 border-0 rounded" />
-          </h1>
+    <section className='py-20 bg-data-bg' id='projects'>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="mb-16">
+          <h2 className="text-white text-center font-bold text-5xl mb-4">
+            Featured Projects
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-cyber-blue to-electric-purple mx-auto rounded-full" />
+          <p className="text-data-text-secondary text-center mt-4 max-w-2xl mx-auto">
+            A selection of data engineering and AI-driven projects showcasing my expertise in ETL solutions, data architecture, and intelligent automation.
+          </p>
         </div>
 
-        <div className='md:flex flex-column md:flex-row md:space-y-0 space-y-12 md:space-x-12 mt-10 items-center justify-center'>
-          {projects.map((projects, index) => {
-            return (
-              <div key={index} className="">
-                <div className='flex flex-column md:flex-row overflow-hidden cursor-pointer rounded-xl relative group'>
-                  <div className="rounded-xl z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 text-white flex items-end">
-                    <div>
-                      <div className="p-4 space-y-3 text-xl group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 pb-10 transform transition duration-300 ease-in-out">
-                        <div className='flex flex-row justify-between'>
-                          <div className="font-bold">{projects.name}</div>
-                          <div className="flex flex-row">
-                            <Link href={projects.github} target="_blank">
-                              <BsGithub size={30} className="hover:-translate-y-1 transition-transform cursor-pointer mr-4" color='white' />
-                            </Link>
-                            {
-                              projects.link.length == 0
-                                ? <button type="button" onClick={() => setShowModal(true)}>
-                                    <BsArrowRightSquare size={30} className="hover:-translate-y-1 transition-transform cursor-pointer" color='white' />
-                                  </button>
-                                : <Link href={projects.link} target="_blank">
-                                  <BsArrowRightSquare size={30} className="hover:-translate-y-1 transition-transform cursor-pointer" color='white' />
-                                </Link>
-                            }
-                          </div>
-                        </div>
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 ${selectedCategory === category
+                ? 'bg-cyber-blue text-data-bg shadow-lg shadow-cyan-500/50'
+                : 'bg-data-card border border-data-border text-data-text-secondary hover:border-cyber-blue'
+                }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
 
-                        <div className="opacity-80 text-sm ">
-                          {projects.decription}
-                        </div>
-                      </div>
+        {/* Projects Grid */}
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-12'>
+          {filteredProjects.map((project, index) => (
+            <div
+              key={index}
+              className={`group relative overflow-hidden rounded-xl bg-data-card border border-data-border hover:border-cyber-blue transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 ${project.featured ? 'md:col-span-1' : ''
+                }`}
+            >
+              {/* Image Container */}
+              <div className='relative w-full h-64 md:h-72 bg-gradient-to-br from-data-border to-data-bg overflow-hidden'>
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    width={500}
+                    height={300}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-cyber-blue/20 to-electric-purple/20">
+                    <div className="text-center">
+                      <p className="text-cyber-blue text-4xl mb-2">📊</p>
+                      <p className="text-data-text-secondary font-semibold">{project.category}</p>
                     </div>
                   </div>
-                  <Image
-                    src={projects.image}
-                    alt=""
-                    width={1000}
-                    height={1000}
-                    className="rounded-xl shadow-xl object-cover group-hover:scale-110 transition duration-300 ease-in-out"
-                  />
-                  <div></div>
-                </div>
+                )}
+
+                {/* Featured Badge */}
+                {project.featured && (
+                  <div className="absolute top-4 right-4 px-3 py-1 bg-electric-purple text-white text-xs font-bold rounded-full">
+                    Featured
+                  </div>
+                )}
               </div>
-            )
-          })}
-        </div>
-      </div>
-      {showModal ? (
-        <>
-          <div
-            className="justify-center items-center w-11/12 mx-auto flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                {/*header*/}
-                <div className="flex items-start text-black justify-between pt-4 px-6 rounded-t">
-                  <h3 className="text-xl font-bold">
-                    Not Available
+
+              {/* Content Overlay */}
+              <div className="p-6 space-y-4">
+                {/* Header */}
+                <div>
+                  <h3 className="text-white font-bold text-xl group-hover:text-cyber-blue transition-colors">
+                    {project.name}
                   </h3>
+                  <p className="text-cyber-blue text-sm font-semibold mt-1">{project.category}</p>
                 </div>
-                {/*body*/}
-                <div className="relative py-2 px-6 flex-auto">
-                  <p className="my-4 text-slate-500 leading-relaxed">
-                    There is no link yet to this project.
-                  </p>
+
+                {/* Description */}
+                <p className="text-data-text-secondary text-sm leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 bg-cyber-blue/10 text-cyber-blue text-xs rounded font-semibold border border-cyber-blue/30"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-                {/*footer*/}
-                <div className="flex items-center justify-end py-2 px-4 rounded-b">
-                  <button
-                    className="bg-transparent hover:text-white hover:bg-pink-500 font-semibold py-2 px-4 border text-pink-400 border-pink-400 hover:border-transparent rounded  background-transparent uppercase text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setShowModal(false)}>
-                    Close
-                  </button>
+
+                {/* Links */}
+                <div className="flex gap-3 pt-4 border-t border-data-border">
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-data-text-secondary hover:text-cyber-blue transition-colors font-semibold text-sm"
+                  >
+                    <BsGithub size={18} />
+                    Code
+                  </Link>
+                  {project.link && (
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-data-text-secondary hover:text-cyber-blue transition-colors font-semibold text-sm"
+                    >
+                      <FaExternalLinkAlt size={16} />
+                      Live Demo
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
-          </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-        </>
-      ) : null}
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center">
+          <p className="text-data-text-secondary mb-4">
+            Want to see more projects?
+          </p>
+          <Link
+            href="https://github.com/itsmerims"
+            target="_blank"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-cyber-blue hover:bg-cyan-600 text-data-bg font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50"
+          >
+            <BsGithub size={20} />
+            Visit My GitHub
+          </Link>
+        </div>
+      </div>
     </section>
   )
 }
